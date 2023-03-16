@@ -7,6 +7,10 @@ const App = () => {
   const [candidates, setCandidates] = useState([]);
   const [president, setPresident] = useState(null);
 
+  const handleVote = (name) => {
+    setPresident(name);
+  }
+
   useEffect(() => setCandidates([
     { name: "Ferdinand Mravenec", avatar: '/assets/candidate01.png' },
     { name: "Markéta Smetana", avatar: '/assets/candidate02.png' },
@@ -34,7 +38,8 @@ const App = () => {
           <Candidate 
             key={c.name}
             name={c.name} 
-            avatar={c.avatar} 
+            avatar={c.avatar}
+            onVote={handleVote} 
           />
         ))}
       </div>
